@@ -1,0 +1,138 @@
+ScreenManager:
+    FirstWindow:
+    SecondWindow:
+    AppWindow:
+    OldUser:
+    Olduserblank:
+
+<FirstWindow>:
+    name: "FirstWindow"
+    MDCard:
+        size_hint: None, None
+        size: "400", "500"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        orientation: "vertical"
+        padding: 25
+        spacing: 25
+
+        MDLabel:
+            id: Label_Sign_Up
+            text: "Sign Up"
+            halign: "center"
+            font_style: "H3"
+
+        MDTextField:
+            id: username
+            hint_text: "Username"
+            icon_left: "email"
+            font_size: 18
+            width: 200
+            size_hint_x: None
+            pos_hint: {"center_x": 0.5}
+            mode: "round"  # Makes the text field round
+
+        MDTextField:
+            id: password
+            hint_text: "Password"
+            icon_left: "lock"
+            password: True
+            font_size: 18
+            width: 200
+            size_hint_x: None
+            pos_hint: {"center_x": 0.5}
+            mode: "round"  # Makes the text field round
+
+        MDRoundFlatButton:
+            text: "Sign up"
+            text_color: 6, 6, 6  # White text color
+            line_color: 0, 0, 0  # Black line color
+            font_size: 20
+            pos_hint: {"center_x": .5, "center_y": .2}
+            on_press: app.sign_up(password.text, username.text)
+
+<SecondWindow>:
+    name: "SecondWindow"
+    MDCard:
+        size_hint: None, None
+        size: "400", "500"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        orientation: "vertical"
+        padding: 25
+        spacing: 25
+
+        MDLabel:
+            id: Label_reg
+            text: "Registration"
+            halign: "center"
+            font_size: 45
+
+        MDRoundFlatIconButton:
+            text: "Go Back to Sign Up"
+            theme_text_color: "Custom"
+            text_color: 6, 6, 6
+            line_color: 6, 6, 6
+            pos_hint: {"center_x": .5, "center_y": .2}
+            on_press: app.root.current = "FirstWindow"  # Navigate back to FirstWindow
+
+<AppWindow>:
+    name: "AppWindow"
+    MDCard:
+        size_hint: None, None
+        size: "400", "500"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        orientation: "vertical"
+        padding: 25
+        spacing: 25
+
+        MDLabel:
+            id: Label_reg
+            text: "Welcome!"
+            halign: "center"
+            font_size: 45
+
+<Olduserblank>
+    name: "Olduserblank"
+    MDCard:
+        size_hint: None, None
+        size: "400", "500"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        orientation: "vertical"
+        padding: 25
+        spacing: 25
+
+        MDLabel:
+            id: Label12
+            text_size: root.width, root.height
+            text: "HHH"
+            halign: "center"
+            valign: "top"
+            font_style: "H3"
+
+<OldUser>
+    name: "OldUser"
+    MDCard:
+        size_hint: None, None
+        size: "400", "500"
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        orientation: "vertical"
+        padding: 25
+        spacing: 25
+
+        MDLabel:
+            id: Label_reg
+            text: "Hello Old User!"
+            halign: "center"
+            font_size: 45
+
+        MDRoundFlatButton:
+            text: "Run"
+            text_color: 6, 6, 6  # White text color
+            line_color: 0, 0, 0  # Black line color
+            font_size: 20
+            pos_hint: {"center_x": .5, "center_y": .2}
+            on_press: app.root.current = "Olduserblank"
